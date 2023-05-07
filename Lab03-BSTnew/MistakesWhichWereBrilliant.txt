@@ -1,0 +1,109 @@
+//-------------------------------FINDING KEY FROM VALUE WOW!!!-----------------------------------
+//IN-ORDER WALKING FOR FINDING THE KEYS:
+// 
+// --DISPAIR THIS CODE: WORTH REMEMBERING--
+//int recursiveInOrderWalkForKeys(Node* temp, int key) {
+//	if (temp == nullptr) {
+//		return -1;
+//	}
+//	else {
+//		
+//		recursiveInOrderWalkForKeys(temp->left, key);
+//		if (temp->key == key) {
+//			return temp->value;
+//		}
+//		//cout << temp->key << " ";
+//		recursiveInOrderWalkForKeys(temp->right, key);
+//	}
+//}
+
+
+//
+//int recursiveInOrderWalkForKeys(Node* temp, int key) {
+//	if (temp == nullptr) {
+//		return -1;
+//	}
+//	else {
+//		if (temp->key == key) {
+//			return temp->value;
+//		}
+//		int resultValue = recursiveInOrderWalkForKeys(temp->left, key);
+//		if (resultValue != -1) {
+//			return resultValue; // return the value if key is found
+//		}
+//		//cout << temp->key << " ";
+//		return recursiveInOrderWalkForKeys(temp->right, key);
+//	}
+//}
+//
+//int BinarySearchTree::search(int key) {
+//	return recursiveInOrderWalkForKeys(root, key);
+//
+//}
+
+
+//std::string BinarySearchTree::remove(int key) {
+//	Node* temp = root;
+//	Node* parent = nullptr; //to keep track of current node's parent.
+//	if (temp == nullptr) {
+//		return "TREE EMPTY";
+//	}
+//	else {
+//		while (temp != nullptr) {
+//			if (key < temp->key) {
+//				parent = temp;
+//				temp = temp->left;
+//			}
+//			else if (key < temp->key) {
+//				parent = temp;
+//				temp = temp->right;
+//			}
+//			//else block: if the key is found
+//			else if (key == temp->key) {
+//				//case for no children
+//				if (temp->left == nullptr && temp->right == nullptr) {
+//					if (parent->left == nullptr) {
+//						
+//					}
+//					delete temp;
+//					temp = nullptr;
+//					parent
+//				}
+//				//case for 1 right child
+//				else if (temp->left == nullptr && temp->right != nullptr) {
+//					Node* temp2 = temp;
+//					temp = temp->right;
+//					delete temp2;
+//				}
+//				//case for 1 left child
+//				else if (temp->right == nullptr && temp->left != nullptr)  {
+//					Node* temp2 = temp;
+//					temp = temp->left;
+//					delete temp2;
+//				}
+//				//case for both child
+//				else {
+//					Node* smallestNodeRightSubtree = temp->right;
+//					//navigate to the smallest key bearing node in the right sub-tree:
+//					while (smallestNodeRightSubtree->left != nullptr) {
+//						smallestNodeRightSubtree = smallestNodeRightSubtree->left;
+//					}
+//					//copy values to the root node
+//					temp->key = smallestNodeRightSubtree->key;
+//					temp->value = smallestNodeRightSubtree->value;
+//					//delete the least key bearing node in the right subtree
+//					delete smallestNodeRightSubtree;
+//					smallestNodeRightSubtree = nullptr;
+//				}
+//				sizeCount = sizeCount - 1;
+//				return ""; //returning nill string for keys found and deleted
+//			}
+//
+//			else {
+//				//if the key is not found in the tree:
+//				return "False";
+//			}
+//		}
+//		
+//	}
+//}

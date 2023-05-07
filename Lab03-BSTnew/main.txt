@@ -1,0 +1,64 @@
+#include "pch.h"
+#include "BinarySearchTree.h"
+
+int main() {
+	BinarySearchTree BT = BinarySearchTree(); //instantiating BinarySearchTree
+
+	//Insertion:
+	BT.add(3, "Value of 3");
+	BT.add(4, "Value of 4");
+	BT.add(1, "Value of 1");
+	BT.add(2, "Value of 2");
+	BT.add(5, "Value of 5");
+
+	//size():
+	std::cout << "Size of tree: " << BT.size() << std::endl;
+
+	//smallest():
+	std::cout << "Smallest: " << 
+		"(" << std::get<0>(BT.smallest()) << ", "
+		<< std::get<1>(BT.smallest()) << ")" << std::endl;
+
+	//largest():
+	std::cout << "Largest: " << 
+		"(" << std::get<0>(BT.largest()) << ", " 
+		<< std::get<1>(BT.largest()) << ")" << std::endl;
+
+	//inorder_walk():
+	std::vector<int> inOrderTraversal = BT.inorder_walk();
+	for (const auto& key : inOrderTraversal) {
+		std::cout << key << " ";
+	}
+
+	//pre-orderwalk():
+	std::cout << std::endl;
+	std::vector<int> preOrderTraversal = BT.preorder_walk();
+	for (const auto& key : preOrderTraversal) {
+		std::cout << key << " ";
+	}
+
+	//post-orderwalk():
+	std::cout << std::endl;
+	std::vector<int> postOrderTraversal = BT.postorder_walk();
+	for (const auto& key : postOrderTraversal) {
+		std::cout << key << " ";
+	}
+	//search():
+	std::cout << std::endl;
+	std::cout << BT.search(10);
+
+	//remove():
+	std::cout << std::endl;
+	std::cout << BT.remove(3);
+
+	//size():
+	std::cout << std::endl;
+	std::cout << "Size of tree: " << BT.size() << std::endl;
+
+	//inorder_walk():
+	std::vector<int> inOrderTraversal2 = BT.inorder_walk();
+	for (const auto& key : inOrderTraversal2) {
+		std::cout << key << " ";
+	}
+	
+}
